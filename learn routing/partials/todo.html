@@ -1,0 +1,64 @@
+      <div class="container-fluid">
+      <div class="row">
+        <div class="task-category col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-controller="todoCtrl">
+          <h2>{{task_data[0].title}}</h2>
+          <ul>
+            <li id="Home" ng-repeat="x in task_data[0].tasks track by $index" ng-controller="todoCtrl">
+              <span class="task-text" id="{{task_data[0].title}}-task-{{$index}}">{{x}}</span>
+              <span class="task-controls">
+                <span class="complete" ng-click="completeTask($index)">&#10004;</span>
+                &nbsp;
+                <span class="remove" ng-click="removeTask($index)">&times;</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="task-category col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-controller="todoCtrl">
+          <h2>{{task_data[1].title}}</h2>
+          <ul>
+            <li id="School" ng-repeat="x in task_data[1].tasks track by $index" ng-controller="todoCtrl">
+            <span class="task-text" id="{{task_data[1].title}}-task-{{$index}}">{{x}}</span>
+
+            <span class="task-controls">
+              <span class="complete"  ng-click="completeTask($index)">&#10004;</span>
+              &nbsp;
+              <span class="remove" ng-click="removeTask($index)">&times;</span>
+            </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="task-category col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-controller="todoCtrl">
+          <h2>{{task_data[2].title}}</h2>
+          <ul>
+            <li id="Work" ng-repeat="x in task_data[2].tasks track by $index" ng-controller="todoCtrl">
+              <span class="task-text" id="{{task_data[2].title}}-task-{{$index}}">{{x}}</span>
+
+              <span class="task-controls">
+                <span class="complete"  ng-click="completeTask($index, $event)">&#10004;</span>
+                &nbsp;
+                <span class="remove" ng-click="removeTask($index)">&times;</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+        </div>
+
+        <div class="row">
+          <div class="container-fluid col-xs-12 col-sm-12 col-md-8 col-lg-8" id="input-form" ng-controller="todoCtrl">
+          <form>
+            <select 
+              id="todo-category"
+              ng-model="todoCategory"
+              ng-options="category.title for category in task_data track by category.title">
+                <option value="">- Select Category -</option>
+            </select>
+
+            <input type="input" name="new-task" id="new-task" placeholder="Add a new task..." ng-model="newTask">
+              <!-- <br><br> -->
+            <button type="submit" name="submit" value="submit" id="submit" class="btn btn-sm" ng-click="addTask()">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>

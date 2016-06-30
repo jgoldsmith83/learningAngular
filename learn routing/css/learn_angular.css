@@ -1,0 +1,288 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: #6b6b6b;
+  height: 100%;
+  min-height: 100%;
+}
+
+.container {
+  //margin-left: 25%;
+  height: 100%;
+}
+
+#navbar-collapse ul li:hover {
+  cursor: pointer;
+}
+
+.navbar-form {
+  visibility: hidden;
+}
+
+.form-control-custom {
+  border: none;
+  outline: none;
+  margin: 10px 0 0 0;
+  border-bottom: 2px solid #428bca;
+  background-color: transparent;
+  color: #2d5c8a;
+}
+
+#view {
+  margin-top: 10px;
+}
+
+#main-wrapper {
+  color: #fff;
+}
+
+.main-heading {
+  height: 175px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.main-col {
+  height: 625px;
+  min-height: 625px;
+  margin-top: 20px;
+  border: 1px solid white;
+}
+
+.main-col-text {
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.main-col-text ul {
+  list-style: none;
+}
+
+.third-content {
+  color: #fff;
+  text-align: center;
+  height: 550px;
+  min-height: 550px;
+  padding-top: 20px;
+  border: 1px solid white;
+}
+
+#task-wrapper {
+  margin: 0;
+  padding: 10px;
+  background-color: #6b6b6b;
+}
+
+.task-category {
+  display: inline-block;
+  margin-top: 20px;
+  //margin-right: 20px;
+  //box-shadow: 5px 5px 10px -5px black;
+  //padding-bottom: 10px;
+}
+
+.task-category h2 {
+  background-color: #c0c0c0;
+  margin: 0;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  border-bottom: 2px solid black;
+}
+
+.task-category ul {
+  background-color: #c0c0c0;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  padding: 20px 0 10px 0;
+  list-style-type: none;
+}
+
+.task-category ul li {
+  list-style: none;
+  list-style-type: none;
+  background-color: #2d5c8a;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 8px 8px 8px 8px;
+  //border-radius: 5px 0 0 5px;
+}
+
+.task-text {
+  margin-right: 45px;
+}
+
+.task-controls {
+  float: right;
+}
+
+.complete {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.complete:hover {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.remove {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.remove:hover {
+  cursor: pointer;
+}
+
+#input-form {
+  //border: 1px solid black;
+  padding: 10px 40px 10px 40px;
+  //width: 750px;
+  margin: 50px 0 10px 200px;
+  background-color: #e7e7e7;
+}
+
+#input-form form {
+  margin-left: 130px;
+}
+
+#todo-category {
+  border: 0;
+  margin-right: 12px;
+  padding: 5px;
+  background-color: #2d5c8a;
+  color: #ffffff;
+}
+
+#todo-category:focus {
+  outline: none;
+}
+
+#new-task {
+  border: 0;
+  border-bottom: 2px solid #428bca;
+  margin-left: 12px;
+  background-color: #e7e7e7;
+  color: #2d5c8a;
+}
+
+::-webkit-input-placeholder {
+  color: #2d5c8a;
+}
+
+::-moz-input-placeholder {
+  color: #2d5c8a;
+}
+
+:-moz-input-placeholder {
+  color: #2d5c8a;
+}
+
+:-ms-input-placeholder {
+  color: #2d5c8a;
+}
+
+#new-task:focus {
+  //box-shadow: 0 0 5px 1px #428bca;
+  outline: none;
+}
+
+form button {
+  position: relative;
+  margin-left: 24px;
+  border: 0;
+  padding: 8px;
+  color: #ffffff;
+  background-color: #2d5c8a;
+  border-radius: 7px;
+  //font-weight: bold;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: #e7e7e7;
+  color: #2d5c8a;
+  border: 1px solid #2d5c8a;
+}
+
+form button:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 1200px) {
+  #input-form {
+    margin-left: 140px;
+    padding: 10px 20px 10px 20px;
+  }
+
+  #input-form form {
+    margin-left: 100px;
+  }
+
+  .task-text {
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  body, html {
+    overflow-x: hidden;
+  }
+
+  .task-category {
+    margin-bottom: 40px;
+    margin-left: 15px;
+  }
+
+  #input-form {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .task-category {
+    margin-left: 0;
+  }
+
+  #input-form {
+    margin-left: 0;
+  }
+
+  #input-form form {
+    margin-left: 125px;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  #input-form form {
+    margin-left: 65px;
+  }
+}
+
+@media screen and (max-width: 591px) {
+  #input-form form {
+    margin-left: 45px;
+  }
+}
+
+@media screen and (max-width: 571px) {
+  #input-form form {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 541px) {
+  #input-form form {
+    margin-left: 0;
+  }
+}
