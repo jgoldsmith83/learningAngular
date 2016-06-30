@@ -1,6 +1,26 @@
+/*
+*
+* Author: Justin Goldsmith | DotSlashDesign
+*
+* File: learn_angular.js
+* Purpose: This is file contains all the routing and controllers
+*          for the learnAngular app I'm working on while teaching
+*          myself AngularJS
+*
+* Feedback: Please send feedback to justin@justingoldsmith.net
+*
+*/
 
+//-- Initialize main module - still learning about modules.
+//-- Not entirely sure when to use more than one module.
+//-- ngRoute is passed in to the contructor function as a
+//-- single item array to provide app-wide global routing.
 var app = angular.module("aTodoList", ['ngRoute']);
 
+
+//-- $routeProvider is a built in module (class?) that provides
+//-- routing functionality from ngRoute
+//-- Not entirely sure what $locationProvider does really, still trying to figure that out
 app.config(['$routeProvider', '$locationProvider',  
   function($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('!');
@@ -12,15 +32,19 @@ app.config(['$routeProvider', '$locationProvider',
       when('/third', {templateUrl: './partials/third.html'});
 }]);
 
+
+
+//-- BEGIN GLOBAL APP MAIN CONTROLLER
 app.controller("MainCtrl", function($scope, $location) {
   //console.log($location.url())
 
-  //$scope.number = 10;
-
+  //-- A simple function to repeat items by any number passed in when it's called (currently using in ng-repeat)
   $scope.ngRpt = function(num) {
     return new Array(num);
   }
 
+  //-- Set the navbar link belonging to the current page to active to preserve highlighting across refresh
+  //-- and initially set active on "Home" when page is newly loaded. 
   if($location.url() === '/') {
     $('#home-li').addClass('active');
   } else if($location.url() === '/todo') {
@@ -29,9 +53,13 @@ app.controller("MainCtrl", function($scope, $location) {
     $('#third-li').addClass('active');
   }
 
+  //-- Enact the routing when a navbar link is clicked - callable in any clickable element on any page
+  //-- currently only in use on the navbar.
   $scope.setRoute = function(route) {
     $location.path(route);
 
+    //-- Set highlighting on navbar link belonging to current page and show/hide the search bar
+    //-- depending on which page is in view.
     switch($location.path()) {
       case '/':
         $('.navbar-form').css({'visibility':'hidden'});
@@ -54,16 +82,28 @@ app.controller("MainCtrl", function($scope, $location) {
         $('.navbar-form').css({'visibility':'hidden'});
         break;
     }
-    
-    /*
-    if($location.path() === "/todo") {
-      $('.navbar-form').css({'visibility':'visible'});
-    } else {
-      
-    } */
+  }
+
+
+  $scope.invertColumns = function() {
+    $('#main-col-1').toggleClass('col-lg-8').toggleClass('col-lg-3');
+    $('#main-col-2').toggleClass('col-lg-3').toggleClass('col-lg-8');
+  }
+
+  $scope.smallerImg = function() {
+    $('.promo-img').css({'width':'100px', 'height':'100px'});
+  }
+  $scope.largerImg = function() {
+    $('.promo-img').css({'width':'200px', 'height':'200px'});
+  }
+  $scope.normalImg = function() {
+    $('.promo-img').css({'width':'150px', 'height':'150px'});
   }
 });
+//-- END GLOBAL APP MAIN CONTROLLER
 
+
+//-- BEGIN TODO LIST PARTIAL CONTROLLER
 app.controller("todoCtrl", function($scope) {
   
   $scope.task_data = [
@@ -97,12 +137,15 @@ app.controller("todoCtrl", function($scope) {
     var category = document.getElementById('todo-category');
     var newTask = document.getElementById('new-task').value;
 
+    console.log(category.value);
+    console.log(newTask);
+
     switch (category.value) {
       case "Home":
         //alert('"' + newTask.value + '"' + ' has been added to ' + category.value);
-        $scope.task_data[0].tasks.push($scope.newTask.value);
-        $scope.$broadcast($scope.task_data[0].tasks.update);
-        //alert($scope.task_data[0].tasks);
+        $scope.task_data[0].tasks.push($scope.newTask);
+        //$scope.$broadcast($scope.task_data[0].tasks.update);
+        console.log($scope.task_data[0].tasks);
         category.value = "";
         newTask.value = "";
         break;
@@ -144,3 +187,4 @@ app.controller("todoCtrl", function($scope) {
     }
   }
 });
+//-- END TODO LIST PARTIAL CONTROLLER
