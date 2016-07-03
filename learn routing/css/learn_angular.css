@@ -33,6 +33,14 @@ body, html {
   color: #2d5c8a;
 }
 
+footer {
+  height: 60px;
+  background-color: #e7e7e7;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
 #view {
   margin-top: 10px;
 }
@@ -45,10 +53,17 @@ body, html {
   height: 175px;
   text-align: center;
   border: 1px solid white;
+  color: #fff;
+  //background-image: url("http://www.ambient-mixer.com/images_template/6/8/4/684fde72d439469977555a6119dc2d2a_full.jpg");
+  //background-position: left 0 bottom -210px;
+}
+
+.main-heading h1 {
+  margin-top: 100px;
 }
 
 .promo-wrapper {
-  //margin-top: 20px;
+  margin-top: 20px;
   background-color: #e7e7e7;
   padding: 30px 0 30px 0;
 }
@@ -75,8 +90,15 @@ body, html {
   margin: 20px 0 0 120px;
   border: 1px solid #6b6b6b;
   border-radius: 50%;
-  padding-top: 37px;
+  //padding-top: 37px;
   box-shadow: 1px 1px 12px 2px #6b6b6b;
+  transition: all 1200ms;
+}
+
+.promo-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   transition: all 1200ms;
 }
 
@@ -87,7 +109,7 @@ body, html {
 .main-col {
   height: 625px;
   min-height: 625px;
-  //margin-top: 20px;
+  margin-top: 20px;
   border: 1px solid white;
 }
 

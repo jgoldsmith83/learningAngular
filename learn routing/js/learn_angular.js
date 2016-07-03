@@ -92,12 +92,15 @@ app.controller("MainCtrl", function($scope, $location) {
 
   $scope.smallerImg = function() {
     $('.promo-img').css({'width':'100px', 'height':'100px'});
+    $('.promo-image').css({'width':'100px', 'height':'100px'});
   }
   $scope.largerImg = function() {
     $('.promo-img').css({'width':'200px', 'height':'200px'});
+    $('.promo-image').css({'width':'200px', 'height':'200px'});
   }
   $scope.normalImg = function() {
     $('.promo-img').css({'width':'150px', 'height':'150px'});
+    $('.promo-image').css({'width':'150px', 'height':'150px'});
   }
 });
 //-- END GLOBAL APP MAIN CONTROLLER
