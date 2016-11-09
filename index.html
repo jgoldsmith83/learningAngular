@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="aTodoList">
 <head>
-	<title>Learning AngularJS</title>
+	<title>DSD Sandbox</title>
 
 	<meta charset="utf-8">
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="css/learn_angular.css">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
@@ -21,9 +22,9 @@
 
 </head>
 <body ng-controller="MainCtrl">
-
+<div class="container">
   <div id="task-wrapper">
-    <div class="container">
+    <!--<div class="container">-->
 
       <nav class="nav navbar-default">
         <!-- BEGIN COLLAPSED NAVBAR -->
@@ -32,7 +33,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
               <span class="glyphicon glyphicon-menu-hamburger"></span>
             </button>
-            <a href="#" class="navbar-brand">aLogoHere</a>
+            <a href="/#!" class="navbar-brand">./design</a>
           </div>
         <!-- END COLLAPSED NAVBAR -->
 
@@ -55,15 +56,55 @@
       </nav>
 
       <div id="view" ng-view></div>
+    <!--</div>-->
+  </div>
 
       <footer>
-        <div class="container">
+        <div class="footer-container">
           <div id="footer">
-            some footer text.
+            <span id="social">
+              <i class="fa fa-google-plus"></i> &nbsp;| &nbsp;
+              <i class="fa fa-twitter"></i> &nbsp;| &nbsp;
+              <i class="fa fa-facebook"></i>
+            </span>
+
+            <i class="fa fa-angle-double-up"></i>
+
+            <span id="date"></span>
+
+            <div id="footer-info" class="row">
+              <div class="wrapper">
+                <div class="col-lg-4">
+                  <strong><em>Other Sections</em></strong>
+                  <hr width="60%">
+                  <ul class="footer-list">
+                    <li>Link to Section 1</li>
+                    <li>Link to Section 2</li>
+                    <li>Link to Section 3</li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4">
+                  <strong><em>Legal Stuff</em></strong>
+                  <hr width="60%">
+                  <ul class="footer-list">
+                    <li>Legal info 1</li>
+                    <li>Legal info 2</li>
+                    <li>Legal info 3</li>
+                    <li>Legal info 4</li>
+                    <li>Legal info 5</li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-4">
+                  <strong><em>Copyright Info</em></strong>
+                  <hr width="60%">
+                  &copy; 2016 DotSlashDesign.
+                </div>
+            </div>
           </div>
         </div>
       </footer>
-  </div>
-
+</div>
 </body>
 </html>

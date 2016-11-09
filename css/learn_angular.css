@@ -7,9 +7,23 @@ body, html {
   min-height: 100%;
 }
 
+.col-lg-3, .col-lg-8, footer, .footer-container, .fa-angle-double-up {
+  transition: all 1200ms;
+}
+
 .container {
+  position: relative;
   //margin-left: 25%;
   height: 100%;
+  min-height: 100%;
+}
+
+#navbar-collapse ul li:hover {
+  cursor: pointer;
+}
+
+.navbar-form {
+  visibility: hidden;
 }
 
 .form-control-custom {
@@ -21,9 +35,115 @@ body, html {
   color: #2d5c8a;
 }
 
+#view {
+  margin-top: 10px;
+  height: 100%;
+  min-height: 100%;
+}
+
+#main-wrapper {
+  color: #fff;
+  min-height: 100%; 
+}
+
+.main-heading {
+  height: 175px;
+  text-align: center;
+  border: 1px solid white;
+  color: #fff;
+  //background-image: url("http://www.ambient-mixer.com/images_template/6/8/4/684fde72d439469977555a6119dc2d2a_full.jpg");
+  //background-position: left 0 bottom -210px;
+}
+
+.main-heading h1 {
+  margin-top: 100px;
+}
+
+.promo-wrapper {
+  margin-top: 20px;
+  background-color: #e7e7e7;
+  padding: 30px 0 30px 0;
+}
+
+.promo-wrapper span {
+  color: #6b6b6b;
+  margin-left: 10px;
+  vertical-align: center;
+}
+
+.promo-container {
+  display: inline-block;
+  width: 33%;
+  height: 300px;
+  text-align: center;
+  color: #6b6b6b;
+  background-color: #e7e7e7;
+  //border: 1px solid white;
+}
+
+.promo-img {
+  width: 150px;
+  height: 150px;
+  margin: 20px 0 0 120px;
+  border: 1px solid #6b6b6b;
+  border-radius: 50%;
+  //padding-top: 37px;
+  box-shadow: 1px 1px 12px 2px #6b6b6b;
+  transition: all 1200ms;
+}
+
+.promo-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: all 1200ms;
+}
+
+.promo-text {
+  margin-top: 10px;
+}
+
+.main-col {
+  height: 625px;
+  min-height: 625px;
+  margin-top: 20px;
+  border: 1px solid white;
+}
+
+.main-col-text {
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.main-col-text ul {
+  list-style: none;
+}
+
+button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.btn-instruction {
+  //line-height: 34px;
+  vertical-align: center;
+}
+
+.third-content {
+  color: #fff;
+  text-align: center;
+  height: 550px;
+  min-height: 550px;
+  padding-top: 20px;
+  border: 1px solid white;
+}
+
 #task-wrapper {
   margin: 0;
+  margin-bottom: 30px;
   padding: 10px;
+  //height: 100%;
   background-color: #6b6b6b;
 }
 
@@ -165,6 +285,62 @@ form button:hover {
 
 form button:focus {
   outline: none;
+}
+
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 25px;
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  background-color: #e7e7e7;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 25px;
+  background-color: #e7e7e7;
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
+.footer-container:hover {
+  height: 300px;
+  background-color: #72818B;
+  color: #ffffff;
+  box-shadow: 0 -2.5px 5px 2.5px #000000;
+}
+
+footer:hover {
+  background-color: #72818B;
+  color: #ffffff;
+}
+
+footer:hover .fa-angle-double-up {
+  transform:rotate(180deg);
+  color: #ffffff;
+}
+
+#date {
+  position: absolute;
+  right: 10px;
+}
+
+#social {
+  position: absolute;
+  left: 10px;
+}
+
+#footer-info {
+  margin-top: 20px;
+}
+
+.footer-list {
+  list-style: none;
 }
 
 @media screen and (max-width: 1200px) {

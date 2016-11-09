@@ -3,11 +3,11 @@
 * Author: Justin Goldsmith | DotSlashDesign
 *
 * File: learn_angular.js
-* Purpose: This is file contains all the routing and controllers
+* Purpose: This file contains all the routing and controllers
 *          for the learnAngular app I'm working on while teaching
 *          myself AngularJS
 *
-* Feedback: Please send feedback to justin@justingoldsmith.net
+* Feedback: Please send feedback to justin@dotslashdesign.com
 *
 */
 
@@ -45,11 +45,15 @@ app.controller("MainCtrl", function($scope, $location) {
 
   //-- Set the navbar link belonging to the current page to active to preserve highlighting across refresh
   //-- and initially set active on "Home" when page is newly loaded. 
+  $('#home-li').addClass('active');
+
   if($location.url() === '/') {
     $('#home-li').addClass('active');
   } else if($location.url() === '/todo') {
+    $('#home-li').toggleClass('active');
     $('#todo-li').addClass('active');
   } else if($location.url() === '/third') {
+    $('#home-li').toggleClass('active');
     $('#third-li').addClass('active');
   }
 
@@ -91,17 +95,106 @@ app.controller("MainCtrl", function($scope, $location) {
   }
 
   $scope.smallerImg = function() {
-    $('.promo-img').css({'width':'100px', 'height':'100px'});
-    $('.promo-image').css({'width':'100px', 'height':'100px'});
+    if ($('.promo-img').css('margin-left') == "80px") {
+      $('.promo-img').css({'width':'100px', 'height':'100px', 'margin-left':'+=40px'});
+      $('.promo-image').css({'width':'100px', 'height':'100px'});
+    } else {
+      if ($('.promo-img').css('width') == "100px") {
+        alert('Already small.');
+        return 0;
+      } else {
+        $('promo-img').css({'width':'100px', 'height':'100px'});
+        $('promo-image').css({'width':'100px', 'height':'100px'});
+      }
+    }
   }
   $scope.largerImg = function() {
-    $('.promo-img').css({'width':'200px', 'height':'200px'});
-    $('.promo-image').css({'width':'200px', 'height':'200px'});
+    if ($('.promo-img').css('width') == "200px") {
+      alert('Already large.');
+      return 0;
+    } else {
+      $('.promo-img').css({'width':'200px', 'height':'200px', 'margin-left':'-=40px'});
+      $('.promo-image').css({'width':'200px', 'height':'200px'});
+    }
   }
   $scope.normalImg = function() {
-    $('.promo-img').css({'width':'150px', 'height':'150px'});
-    $('.promo-image').css({'width':'150px', 'height':'150px'});
+
+    if ($('.promo-img').css('margin-left') == "80px") {
+      $('.promo-img').css({'width':'150px', 'height':'150px', 'margin-left':'+=40px'});
+      $('.promo-image').css({'width':'150px', 'height':'150px'});
+    } else {
+      if ($('.promo-img').css('width') == "150px") {
+        alert('Already normal.');
+        return 0;
+      } else {
+        $('.promo-img').css({'width':'150px', 'height':'150px'});
+        $('.promo-image').css({'width':'150px', 'height':'150px'});
+      }
+    }
   }
+
+  function formatTime(hours) {
+    if (hours == 12) {
+      hours = "12";
+
+      return hours;
+    } else {
+      hours = hours % 12;
+
+      return hours;
+    }
+  }
+
+  function addAMPM(hours) {
+    if (hours > 12) {
+      ampm = "AM";
+
+      return ampm;
+    } else {
+      ampm = "PM";
+
+      return ampm;
+    }
+  }
+
+  function addZero(i) {
+    if (i < 10) {
+      i = '0' + i;
+    }
+
+    return i;
+  }
+
+  function clock() {
+    var d = new Date();
+    var month = d.getMonth();
+    var day = d.getDate();
+    var weekday = d.getDay();
+    var year = d.getFullYear();
+    var hours = formatTime(d.getHours());
+    var mins = addZero(d.getMinutes());
+    var secs = addZero(d.getSeconds());
+    var ampm = addAMPM(hours);
+
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+
+    //document.getElementById('date').innerHTML = days[weekday] + " " + months[month] + "/" + day + "/" + year + " " + hours + ':' + mins + ':' + secs + " " + ampm;
+
+    setTimeout(clock, 1000);
+  }
+
+  var d = new Date();
+  var month = d.getMonth();
+  var day = d.getDate();
+  var year = d.getFullYear();
+
+  console.log(d);
+  console.log(month);
+  console.log(day);
+  console.log(year);
+
+  clock();
 });
 //-- END GLOBAL APP MAIN CONTROLLER
 
@@ -136,31 +229,29 @@ app.controller("todoCtrl", function($scope) {
     }
   ];
 
-  $scope.addTask = function() {
-    var category = document.getElementById('todo-category');
+  $scope.addTask = function($event) {
+    var category = document.getElementById('todo-category').value;
     var newTask = document.getElementById('new-task').value;
 
-    console.log(category.value);
+    console.log(category);
     console.log(newTask);
 
-    switch (category.value) {
+    switch (category) {
       case "Home":
-        //alert('"' + newTask.value + '"' + ' has been added to ' + category.value);
         $scope.task_data[0].tasks.push($scope.newTask);
-        //$scope.$broadcast($scope.task_data[0].tasks.update);
-        console.log($scope.task_data[0].tasks);
+
         category.value = "";
         newTask.value = "";
         break;
       case "School":
-        //alert('"' + newTask.value + '"' + ' has been added to ' + category.value);
         $scope.task_data[1].tasks.push($scope.newTask);
+
         category.value = "";
         newTask.value = "";
         break;
       case "Work":
-        //alert('"' + newTask.value + '"' + ' has been added to ' + category.value);
         $scope.task_data[2].tasks.push($scope.newTask);
+
         category.value = "";
         newTask.value = "";
         break;
@@ -175,14 +266,18 @@ app.controller("todoCtrl", function($scope) {
     $("#"+textParent+"-task-"+$index).css({'text-decoration':'line-through'});
   }
 
-  $scope.removeTask = function(x) {
+  $scope.removeTask = function($index, $event) {
     var taskParent = angular.element(event.target).parent().parent().attr('id');
-
-    console.log(x)
 
     switch(taskParent) {
       case "Home":
-        $scope.task_data[0].tasks.splice(x, 1);
+        $scope.task_data[0].tasks.splice($index, 1);
+        break;
+      case "School":
+        $scope.task_data[1].tasks.splice($index, 1);
+        break;
+      case "Work":
+        $scope.task_data[2].tasks.splice($index, 1);
         break;
       default:
         alert('OOPS! Looks like something went wrong...try again?');
